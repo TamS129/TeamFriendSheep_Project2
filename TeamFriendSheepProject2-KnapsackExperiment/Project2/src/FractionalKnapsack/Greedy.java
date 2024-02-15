@@ -1,71 +1,141 @@
 package FractionalKnapsack;
 
+import General.FKnapsack;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Greedy {
-
-    public void run(int capacity, int[] weight, int[] value) {
-        //Int variable to hold our weight. Array to hold our items, double to hold our profit, and an array for ratios
+    ArrayList<FKnapsack> totalArrays = new ArrayList<>();
+    ArrayList<Integer> itemsAdded = new ArrayList<>();
+    public void run(int title, int capacity, int[] weight, int[] value){
         int length = weight.length;
-        FKnapsack order = new FKnapsack();
-        FKnapsack[] list = new FKnapsack[length];
         double profit = 0;
-        ArrayList<Integer> itemSelected = new ArrayList<>();
-        int capcityLeft = capacity;
 
-        for (int index = 0; index < weight.length; index++) {
 
-            FKnapsack temp = new FKnapsack();
-            temp.setValue(value[index]);
+        //Intialize all array values,weights, and ratios into FractionalArray
+        for(int index = 0; index < length; index++){
 
-            double ratioTemp = value[index] / weight[index];
-            temp.setRatio(ratioTemp);
+            //Intialize Item number
+            int itemNum = index + 1;
 
-            temp.setTitle(index);
-            temp.setWeight(weight[index]);
+            //Intialize Ratios
+            double ratioNum = (double) value[index]/weight[index];
 
-            list[index] = temp;
+            //Put in all arrays into a combined fractional array.
+            FKnapsack combine = new FKnapsack(itemNum, weight[index],value[index],ratioNum);
+            totalArrays.add(combine);
+
 
         }
+        firstDisplay(title);
+        //Sort array based on Ratios
+        Collections.sort(totalArrays, Comparator.comparingDouble(FKnapsack:: getRatio).reversed());
 
 
-        //Sorts the items array in desecending order based on ratios. + Converts integers into doubles
-        for (int i = 0; i < list.length - 1; i++) {
-            if (list[i].getRatio() < list[i + 1].getRatio()) {
-                FKnapsack temp = new FKnapsack();
-                temp = list[i];
-                list[i] = list[i + 1];
-                list[i + 1] = temp;
+
+        ArrayList<Integer> itemsPicked = new ArrayList<>();
+        int currentCapacity = capacity;
+        int index = 0;
+        while (currentCapacity > 0 && index < totalArrays.size()) {
+
+            FKnapsack total = totalArrays.get(index);
+            if (total.getWeight() <= currentCapacity) {
+
+                profit += total.getValue();
+                currentCapacity -= total.getWeight();
+                itemsAdded.add(total.getItemNum());
+
+
             }
+            else {
 
-        }
+                double fraction = (double) currentCapacity / total.getWeight();
 
-        while (capcityLeft > 0) {
-            for (FKnapsack e : list) {
-                if (e.getWeight() <= capcityLeft && !itemSelected.contains(e.getTitle())) {
-                    profit += e.getValue();
-                    capcityLeft -= e.getWeight();
-                    itemSelected.add(e.getTitle());
+                profit += fraction * total.getValue();
+                currentCapacity = 0; // Knapsack is full
 
-                } else {
-                    profit += capcityLeft * e.getRatio();
-                    capcityLeft = 0;
-                    itemSelected.add(e.getTitle());
-                }
-
-                for (int i : itemSelected) {
-                    System.out.println("Item's Selected: ");
-                    System.out.print(i + ", \n");
-
-
-                }
+                itemsAdded.add(total.getItemNum());
             }
-
+            index++;
         }
+        greedyDisplay();
 
-        System.out.println("Total Profit = " + profit);
     }
+
+    public void greedyDisplay() {
+        System.out.println();
+        System.out.println("Reorganized Greedy Chart based on Ratios");
+
+        // Display headers
+        System.out.printf("%-10s", "Items");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("Item%-4d | ", item.getItemNum());
+        }
+        System.out.println();
+
+        // Display weights
+        System.out.printf("%-10s", "Weight");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("%-8d | ", item.getWeight());
+        }
+        System.out.println();
+
+        // Display values
+        System.out.printf("%-10s", "Value");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("%-8.1f | ", item.getValue());
+        }
+        System.out.println();
+
+        // Display ratios
+        System.out.printf("%-10s", "Ratios");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("%-8.2f | ", item.getRatio());
+        }
+        System.out.println();
+
+        for (Integer totalItems : itemsAdded) {
+            System.out.println("Item " + totalItems + " added.");
+        }
+
+    }
+
+    public void firstDisplay(int title) {
+        System.out.println();
+        System.out.println("Title " + title + " Fractional Greedy Chart");
+
+        // Display headers
+        System.out.printf("%-10s", "Items");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("Item%-4d | ", item.getItemNum());
+        }
+        System.out.println();
+
+        // Display weights
+        System.out.printf("%-10s", "Weight");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("%-8d | ", item.getWeight());
+        }
+        System.out.println();
+
+        // Display values
+        System.out.printf("%-10s", "Value");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("%-8.1f | ", item.getValue());
+        }
+        System.out.println();
+
+        // Display ratios
+        System.out.printf("%-10s", "Ratios");
+        for (FKnapsack item : totalArrays) {
+            System.out.printf("%-8.2f | ", item.getRatio());
+        }
+        System.out.println();
+
+
+    }
+
 
 }
