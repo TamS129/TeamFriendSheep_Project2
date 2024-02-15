@@ -3,6 +3,7 @@ package FractionalKnapsack;
 import General.FKnapsack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -10,6 +11,8 @@ public class Greedy {
     ArrayList<FKnapsack> totalArrays = new ArrayList<>();
     ArrayList<Integer> itemsAdded = new ArrayList<>();
     public void run(int title, int capacity, int[] weight, int[] value){
+
+        totalArrays.clear();
         int length = weight.length;
         double profit = 0;
 
@@ -18,7 +21,7 @@ public class Greedy {
         for(int index = 0; index < length; index++){
 
             //Intialize Item number
-            int itemNum = index + 1;
+            int itemNum = index;
 
             //Intialize Ratios
             double ratioNum = (double) value[index]/weight[index];
@@ -33,32 +36,26 @@ public class Greedy {
         //Sort array based on Ratios
         Collections.sort(totalArrays, Comparator.comparingDouble(FKnapsack:: getRatio).reversed());
 
-
-
-        ArrayList<Integer> itemsPicked = new ArrayList<>();
         int currentCapacity = capacity;
         int index = 0;
         while (currentCapacity > 0 && index < totalArrays.size()) {
 
             FKnapsack total = totalArrays.get(index);
+
             if (total.getWeight() <= currentCapacity) {
 
                 profit += total.getValue();
                 currentCapacity -= total.getWeight();
                 itemsAdded.add(total.getItemNum());
 
-
-            }
-            else {
+            } else {
 
                 double fraction = (double) currentCapacity / total.getWeight();
-
                 profit += fraction * total.getValue();
                 currentCapacity = 0; // Knapsack is full
-
-                itemsAdded.add(total.getItemNum());
             }
-            index++;
+
+            index++; // Move to the next item
         }
         greedyDisplay();
 
