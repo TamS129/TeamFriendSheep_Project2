@@ -1,6 +1,7 @@
 package Knapsack01;
 
 
+import General.FKnapsack;
 import General.Reader;
 import General.knapsack;
 
@@ -12,11 +13,17 @@ public class Main {
         Reader read = new Reader();
         // Method Greedy Knapsack 0/1
         Greedy greedy = new Greedy();
+        System.out.println("Nguyen Test -------------------------------");
+        int[] input1 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
+        FKnapsack knap = new FKnapsack();
+        knap.FKnapsack(input1);
+        int profit = greedy.run(knap.getCapacity(), knap.getWeightList(), knap.getValueList());
+       System.out.println(profit);
+        System.out.println("Nguyen Test Completed -------------------------------");
 
-//        int[] input1 = read.load(new File("Project2/src/InputFiles/inputs.csv"));
-//        knapsack knap = new knapsack();
-//        knap.load(input1);
-//        knap.display();
+
+
+
 //
 //        int[] input2 = read.load(new File("Project2/src/InputFiles/inputs2.csv"));
 //        knapsack knap2 = new knapsack();
@@ -24,18 +31,18 @@ public class Main {
 //        knap2.display();
 
         // load data from CSV into new array
-        int[] input3 = read.load(new File("Project2/src/InputFiles/inputs3.csv"));
-        // Initialize object Knapsack
-        knapsack knap3 = new knapsack();
-        // load data from array into knapsack
-        knap3.load(input3);
-        // display knapsack
-        knap3.display();
-        // Initialize variable to store result
-        // run function with name.run(knapsack)
-        int result3 = greedy.run(knap3);
-        // print out result
-        System.out.println(result3);
+//        int[] input3 = read.load(new File("Project2/src/InputFiles/inputs3.csv"));
+//        // Initialize object Knapsack
+//        knapsack knap3 = new knapsack();
+//        // load data from array into knapsack
+//        knap3.load(input3);
+//        // display knapsack
+//        knap3.display();
+//        // Initialize variable to store result
+//        // run function with name.run(knapsack)
+//        int result3 = greedy.run(knap3);
+//        // print out result
+//        System.out.println(result3);
 
     }
 }
