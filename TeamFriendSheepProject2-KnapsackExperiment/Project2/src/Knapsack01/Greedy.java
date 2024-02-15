@@ -1,86 +1,65 @@
 package Knapsack01;
 
-import General.knapsack;
+import General.FKnapsack;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 public class Greedy {
 
-    public int run(knapsack e){
-        int title = e.getTitle();
-        int capacity = e.getCapacity();
-        int[] weight = e.getWeight();
-        int[] value =e.getValue();
-        int totalVal = 0;
-
-        ArrayList<Integer> itemSelected = new ArrayList<>();
-
+    public int run(int capacity, int[] weight, int[] value) {
         int capacityLeft = capacity;
+        int profit = 0;
+        List<FKnapsack> list = new ArrayList<>();
+        List<FKnapsack> bag = new ArrayList<>();
 
-        while (capacityLeft > 0) {
-            int max = Integer.MIN_VALUE;
-            int indexMax = -1;
+        // Initialize items with their ratios
+        for (int i = 0; i < weight.length; i++) {
+            FKnapsack temp = new FKnapsack(i, weight[i], value[i]);
+            list.add(temp);
+        }
 
-            // Find the index of the maximum value
-            for (int i = 0; i < value.length; i++) {
-                if (value[i] > max && !itemSelected.contains(i + 1) && capacityLeft >= weight[i]) {
-                    max = value[i];
-                    indexMax = i;
+
+
+        // Sort items based on ratios
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < list.size() - 1; i++) {
+                FKnapsack current = list.get(i);
+                FKnapsack next = list.get(i + 1);
+                if (current.getRatio() < next.getRatio()) {
+                    list.set(i, next);
+                    list.set(i + 1, current);
+                    swapped = true;
                 }
             }
+        } while (swapped);
 
-            if (indexMax == -1) {
-                break;
+        // Greedy algorithm to fill the knapsack
+        for (FKnapsack e : list) {
+            if (e.getWeight() <= capacityLeft) {
+                profit += e.getValue();
+                bag.add(e);
+                capacityLeft -= e.getWeight();
             }
-
-            totalVal += value[indexMax];
-            // index in array is started with 0
-            // Actual item index = index + 1
-            itemSelected.add(indexMax + 1);
-            capacityLeft -= weight[indexMax];
-
         }
-        System.out.println("Result of Title " + title);
-        System.out.println("Selected items: " + itemSelected);
-        return totalVal;
-    }
 
-    public int run(int title, int capacity, int[] weight, int[] value){
-        int totalVal = 0;
+        // Print details of selected items
 
-        ArrayList<Integer> itemSelected = new ArrayList<>();
-
-        int capacityLeft = capacity;
-
-        while (capacityLeft > 0) {
-            int max = Integer.MIN_VALUE;
-            int indexMax = -1;
-
-            // Find the index of the maximum value
-            for (int i = 0; i < value.length; i++) {
-                if (value[i] > max && !itemSelected.contains(i + 1) && capacityLeft >= weight[i]) {
-                    max = value[i];
-                    indexMax = i;
-                }
-            }
-
-            if (indexMax == -1) {
-                break;
-            }
-
-            totalVal += value[indexMax];
-            // index in array is started with 0
-            // Actual item index = index + 1
-            itemSelected.add(indexMax + 1);
-            capacityLeft -= weight[indexMax];
-
+        for (FKnapsack e : bag) {
+            System.out.println("Item number " + e.getItemNum());
+            System.out.println("Weight: " + e.getWeight());
+            System.out.println("Value: " + e.getValue());
+            System.out.println("Ratio: " + e.getRatio());
+            System.out.println();
         }
-        System.out.println("Result of Title " + title);
-        System.out.println("Selected items: " + itemSelected);
-        return totalVal;
-    }
 
+        return profit;
+
+    }
 
 
 }
