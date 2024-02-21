@@ -11,14 +11,6 @@ public class Main {
     public static void main(String[] args) {
         //Reader
         Reader read = new Reader();
-        // Method Greedy Knapsack 0/1
-        Greedy greedy = new Greedy();
-        int[] input0 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
-        FKnapsack knap = new FKnapsack();
-        knap.FKnapsack(input0);
-        int profit = greedy.run(knap.getCapacity(), knap.getWeightList(), knap.getValueList());
-        System.out.println(profit);
-        System.out.println("Nguyen Test Completed -------------------------------");
 
         int[] input1 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
         knapsack knap1 = new knapsack();
@@ -46,57 +38,47 @@ public class Main {
         knap6.load(input6);
 
         System.out.println();
-        int result1 = Dynamic.knapsackDyProg(knap1.getWeight(), knap1.getValue(), knap1.getCapacity(), knap1.getWeight().length);
-
+        long start = System.nanoTime();
+        Dynamic.knapsackDyProg(knap1.getWeight(), knap1.getValue(), knap1.getCapacity(), knap1.getWeight().length);
+        long end = System.nanoTime();
+        long runtime = (end - start) / 1000;
+        System.out.println("Runtime for Dynamic programming Input 1: " + runtime + " microseconds");
         System.out.println();
-        int result2 = Dynamic.knapsackDyProg(knap2.getWeight(), knap2.getValue(), knap2.getCapacity(), knap2.getWeight().length);
-        int result3 = Dynamic.knapsackDyProg(knap3.getWeight(), knap3.getValue(), knap3.getCapacity(), knap3.getWeight().length);
-        int result4 = Dynamic.knapsackDyProg(knap4.getWeight(), knap4.getValue(), knap4.getCapacity(), knap4.getWeight().length);
-        int result5 = Dynamic.knapsackDyProg(knap5.getWeight(), knap5.getValue(), knap5.getCapacity(), knap5.getWeight().length);
-        int result6 = Dynamic.knapsackDyProg(knap6.getWeight(), knap6.getValue(), knap6.getCapacity(), knap6.getWeight().length);
 
-        System.out.println();
-        long start1 = System.nanoTime();
-        System.out.println("Max benefit for Dynamic Programming Input 1: " + result1);
-        long end1 = System.nanoTime();
-        long runtime1 = (end1 - start1) / 1000;
-        System.out.println("Runtime for Dynamic programming Input 1: " + runtime1 + " microseconds");
-
-        System.out.println();
-        long start2 = System.nanoTime();
-        System.out.println("Max benefit for Dynamic Programming Input 2: " + result2);
+        long star2 = System.nanoTime();
+        Dynamic.knapsackDyProg(knap2.getWeight(), knap2.getValue(), knap2.getCapacity(), knap2.getWeight().length);
         long end2 = System.nanoTime();
-        long runtime2 = (end2 - start2) / 1000;
+        long runtime2 = (end2 - star2) / 1000;
         System.out.println("Runtime for Dynamic programming Input 2: " + runtime2 + " microseconds");
-
         System.out.println();
-        long start3 = System.nanoTime();
-        System.out.println("Max benefit for Dynamic Programming Input 3: " + result3);
+
+        long star3 = System.nanoTime();
+        Dynamic.knapsackDyProg(knap3.getWeight(), knap3.getValue(), knap3.getCapacity(), knap3.getWeight().length);
         long end3 = System.nanoTime();
-        long runtime3 = (end3 - start3) / 1000;
+        long runtime3 = (end3 - star3) / 1000;
         System.out.println("Runtime for Dynamic programming Input 3: " + runtime3 + " microseconds");
-
         System.out.println();
-        long start4 = System.nanoTime();
-        System.out.println("Max benefit for Dynamic Programming Input 4: " + result4);
+
+        long star4 = System.nanoTime();
+        Dynamic.knapsackDyProg(knap4.getWeight(), knap4.getValue(), knap4.getCapacity(), knap4.getWeight().length);
         long end4 = System.nanoTime();
-        long runtime4 = (end4 - start4) / 1000;
+        long runtime4 = (end4 - star4) / 1000;
         System.out.println("Runtime for Dynamic programming Input 4: " + runtime4 + " microseconds");
-
         System.out.println();
-        long start5 = System.nanoTime();
-        System.out.println("Max benefit for Dynamic Programming Input 5: " + result5);
+
+        long star5 = System.nanoTime();
+        Dynamic.knapsackDyProg(knap5.getWeight(), knap5.getValue(), knap5.getCapacity(), knap5.getWeight().length);
         long end5 = System.nanoTime();
-        long runtime5 = (end5 - start5) / 1000;
+        long runtime5 = (end5 - star5) / 1000;
         System.out.println("Runtime for Dynamic programming Input 5: " + runtime5 + " microseconds");
-
         System.out.println();
-        long start6 = System.nanoTime();
-        System.out.println("Max benefit for Dynamic Programming Input 6: " + result6);
-        long end6 = System.nanoTime();
-        long runtime6 = (end6 - start6) / 1000;
-        System.out.println("Runtime for Dynamic programming Input 6: " + runtime6 + " microseconds");
 
+        long star6 = System.nanoTime();
+        Dynamic.knapsackDyProg(knap6.getWeight(), knap6.getValue(), knap6.getCapacity(), knap6.getWeight().length);
+        long end6 = System.nanoTime();
+        long runtime6 = (end6 - star6) / 1000;
+        System.out.println("Runtime for Dynamic programming Input 6: " + runtime6 + " microseconds");
+        System.out.println();
 
 
 
