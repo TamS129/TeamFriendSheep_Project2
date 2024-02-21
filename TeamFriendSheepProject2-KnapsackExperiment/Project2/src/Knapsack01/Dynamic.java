@@ -60,7 +60,11 @@ public class Dynamic {
         Dynamic dynamicSolver = new Dynamic();
 
         // Call the knapsackDyProg method on the instance
+        long start = System.nanoTime();
         dynamicSolver.knapsackDyProg(wt, val, w, n);
+        long end = System.nanoTime();
+        long duration = (end - start) / 1000;
+        System.out.println("Runtime: " + duration);
 
 
     }
