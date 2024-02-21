@@ -8,7 +8,13 @@ import java.util.List;
 
 
 public class Greedy {
-
+    /**
+     * Greedy 0/1 Knapsack
+     * @param capacity
+     * @param weight
+     * @param value
+     * @return the maximum profit
+     */
     public int run(int capacity, int[] weight, int[] value) {
         int capacityLeft = capacity;
         int profit = 0;
@@ -48,7 +54,6 @@ public class Greedy {
         }
 
         // Print details of selected items
-
         for (FKnapsack e : bag) {
             System.out.println("Item number " + e.getItemNum());
             System.out.println("Weight: " + e.getWeight());
