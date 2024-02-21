@@ -44,6 +44,10 @@ public class BruteForce {
         int capacity = 50;
 
         double result = BruteForceFraction(values, weights, capacity);
+        long start = System.nanoTime();
         System.out.println("Maximum value: " + result);
+        long end = System.nanoTime();
+        long runtime = (end - start) / 1000;
+        System.out.println("Runtime: " + runtime);
     }
 }
