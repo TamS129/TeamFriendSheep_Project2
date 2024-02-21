@@ -1,7 +1,8 @@
 package Knapsack01;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+/**
+ * Partial JUnit tests. Made by Robin
+ */
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,4 +1,8 @@
 package FractionalKnapsack;
+/**
+ * Made by Robin/Tamara
+ */
+
 import General.Reader;
 import General.knapsack;
 

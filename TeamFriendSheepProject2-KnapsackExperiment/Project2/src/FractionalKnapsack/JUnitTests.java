@@ -1,4 +1,7 @@
 package FractionalKnapsack;
+/**
+ * Partial JUnit tests. Made by Robin
+ */
 
 import org.junit.jupiter.api.Test;
 

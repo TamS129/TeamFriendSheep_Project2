@@ -1,12 +1,15 @@
 package Knapsack01;
 
+/**
+ * Made by Mika
+ */
 public class BruteForce {
     /**
      * knapsack bruteforce
-     * @param values
-     * @param weights
-     * @param capacity
-     * @return the maximum profit
+     * @param values Values of the items that will go into the knapsack
+     * @param weights Weights of the items that will go into the knapsack
+     * @param capacity Capacity of the knapsack
+     * @return the maximum profit of the final knapsack
      */
     public static int knapsack(int[] values, int[] weights, int capacity) {
         int n = values.length;
