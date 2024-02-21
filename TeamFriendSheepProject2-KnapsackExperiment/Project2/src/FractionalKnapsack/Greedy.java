@@ -58,6 +58,7 @@ public class Greedy {
             index++; // Move to the next item
         }
         greedyDisplay();
+        itemsAdded.clear();
 
     }
 
