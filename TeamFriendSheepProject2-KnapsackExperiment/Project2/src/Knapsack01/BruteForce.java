@@ -1,7 +1,13 @@
 package Knapsack01;
 
 public class BruteForce {
-
+    /**
+     * knapsack bruteforce
+     * @param values
+     * @param weights
+     * @param capacity
+     * @return the maximum profit
+     */
     public static int knapsack(int[] values, int[] weights, int capacity) {
         int n = values.length;
         int maxValue = 0;
@@ -11,7 +17,9 @@ public class BruteForce {
             int currentValue = 0;
             int currentWeight = 0;
             for (int j = 0; j < n; j++) {
-                // Check if item j is included in the subset
+                // Check if
+                //
+                // item j is included in the subset
                 if ((i & (1 << j)) != 0) {
                     currentValue += values[j];
                     currentWeight += weights[j];
