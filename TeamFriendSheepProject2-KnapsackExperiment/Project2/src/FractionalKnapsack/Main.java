@@ -10,6 +10,8 @@ public class Main {
         Greedy greedy = new Greedy();
         BruteForce bruteForce = new BruteForce();
 
+        System.out.println("******************** Greedy Run times *************************");
+
         int[] input1 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
         knapsack knap1 = new knapsack();
         knap1.load(input1);
@@ -46,55 +48,53 @@ public class Main {
 
         greedy.run(knap6.getTitle(), knap6.getCapacity(), knap6.getWeight(), knap6.getValue());
 
-
-        double result1 = bruteForce.BruteForceFraction(knap1.getValue(), knap1.getWeight(), knap1.getCapacity());
-        double result2 = bruteForce.BruteForceFraction(knap2.getValue(), knap2.getWeight(), knap2.getCapacity());
-        double result3 = bruteForce.BruteForceFraction(knap3.getValue(), knap3.getWeight(), knap3.getCapacity());
-        double result4 = bruteForce.BruteForceFraction(knap4.getValue(), knap4.getWeight(), knap4.getCapacity());
-        double result5 = bruteForce.BruteForceFraction(knap5.getValue(), knap5.getWeight(), knap5.getCapacity());
-        double result6 = bruteForce.BruteForceFraction(knap6.getValue(), knap6.getWeight(), knap6.getCapacity());
-
-        System.out.println();
+        System.out.println("******************** Brute Force Run times *************************");
 
         long start1 = System.nanoTime();
-        System.out.println("Max benefit of input1: " + result1);
+        double result1 = bruteForce.BruteForceFraction(knap1.getValue(), knap1.getWeight(), knap1.getCapacity());
         long end1  = System.nanoTime();
         long runtime1 = (end1 - start1) / 1000;
+        System.out.println("Max benefit of input1: " + result1);
         System.out.println("Runtime for BruteForce input1: " + runtime1 + " microseconds");
         System.out.println();
 
         long start2 = System.nanoTime();
-        System.out.println("Max benefit: " + result2);
+        double result2 = bruteForce.BruteForceFraction(knap2.getValue(), knap2.getWeight(), knap2.getCapacity());
         long end2  = System.nanoTime();
         long runtime2 = (end2 - start2) / 1000;
+        System.out.println("Max benefit: " + result2);
         System.out.println("Runtime for BruteForce input2: " + runtime2 + " microseconds");
         System.out.println();
 
         long start3 = System.nanoTime();
-        System.out.println("Max benefit: " + result3);
+        double result3 = bruteForce.BruteForceFraction(knap3.getValue(), knap3.getWeight(), knap3.getCapacity());
         long end3  = System.nanoTime();
         long runtime3 = (end3 - start3) / 1000;
+        System.out.println("Max benefit: " + result3);
         System.out.println("Runtime for BruteForce input3: " + runtime3 + " microseconds");
         System.out.println();
 
         long start4 = System.nanoTime();
-        System.out.println("Max benefit: " + result4);
+        double result4 = bruteForce.BruteForceFraction(knap4.getValue(), knap4.getWeight(), knap4.getCapacity());
         long end4  = System.nanoTime();
         long runtime4 = (end4 - start4) / 1000;
+        System.out.println("Max benefit: " + result4);
         System.out.println("Runtime for BruteForce input4: " + runtime4 + " microseconds");
         System.out.println();
 
         long start5 = System.nanoTime();
-        System.out.println("Max benefit: " + result5);
+        double result5 = bruteForce.BruteForceFraction(knap5.getValue(), knap5.getWeight(), knap5.getCapacity());
         long end5  = System.nanoTime();
         long runtime5 = (end5 - start5) / 1000;
+        System.out.println("Max benefit: " + result5);
         System.out.println("Runtime for BruteForce input5: " + runtime5 + " microseconds");
         System.out.println();
 
         long start6 = System.nanoTime();
-        System.out.println("Max benefit: " + result6);
+        double result6 = bruteForce.BruteForceFraction(knap6.getValue(), knap6.getWeight(), knap6.getCapacity());
         long end6  = System.nanoTime();
         long runtime6 = (end6 - start6) / 1000;
+        System.out.println("Max benefit: " + result6);
         System.out.println("Runtime for BruteForce input6: " + runtime6 + " microseconds");
         System.out.println();
 
