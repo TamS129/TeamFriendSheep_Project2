@@ -1,4 +1,7 @@
 package Knapsack01;
+/**
+ * Made by Robin
+ */
 
 
 import General.FKnapsack;

@@ -1,5 +1,4 @@
 package FractionalKnapsack;
-
 import General.FKnapsack;
 
 import java.util.ArrayList;
@@ -7,9 +6,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * Made by Tamara
+ */
 public class Greedy {
     ArrayList<FKnapsack> totalArrays = new ArrayList<>();
     ArrayList<Integer> itemsAdded = new ArrayList<>();
+
+    /**
+     *
+     * @param title The title of the input.
+     * @param capacity Capacity of the knapsack
+     * @param weight Weight of the values that will go into the knapsack
+     * @param value Values of the items that will go into the knapsack
+     */
     public void run(int title, int capacity, int[] weight, int[] value){
 
         totalArrays.clear();

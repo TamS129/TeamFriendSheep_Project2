@@ -1,9 +1,18 @@
 package FractionalKnapsack;
 
-
+/**
+ * Made by Robin
+ */
 
 public class BruteForce {
 
+    /**
+     *
+     * @param values Values of the items that will go into the knapsack
+     * @param weights Weights of the items that will go into the knapsack
+     * @param capacity Capacity of the knapsack
+     * @return Returns the max profit of the final knapsack
+     */
     public static double BruteForceFraction(int[] values, int[] weights, int capacity) {
         int n = values.length;
         double maxValue = 0;
