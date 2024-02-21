@@ -46,7 +46,7 @@ public class knapsack {
 
 
 
-
+    // display info of knapsack
     public void display(){
         System.out.println("-----------------------------------------------------------------------------------");
         System.out.println("Title: " + title);
