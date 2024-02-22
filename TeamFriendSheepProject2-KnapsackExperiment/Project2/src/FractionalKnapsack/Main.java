@@ -14,10 +14,11 @@ public class Main {
         Greedy greedy = new Greedy();
         BruteForce bruteForce = new BruteForce();
 
+
         /**
-         * Our group had a weird encounter where the input files can be read from one reference path, and some
-         * read from the another reference path. If your computer does not read the input file, then comment out the current reference
-         * path and uncomment out the reference path.
+         * Our group had a weird encounter where some computers could read the input files from one reference path, and some
+         * computers read from the other. If your computer does not read the input file, then comment out the current reference
+         * path and uncomment out the other reference path.
          */
 
 

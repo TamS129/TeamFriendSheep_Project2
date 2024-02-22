@@ -18,9 +18,9 @@ public class Main {
         Greedy greedy = new Greedy();
 
         /**
-         * Our group had a weird encounter where one of the src files can be read from one reference path, and some
-         * read from the other. If your computer does not read the input file, then comment out the current reference
-         * path and uncomment out the reference path.
+         * Our group had a weird encounter where some computers could read the input files from one reference path, and some
+         * computers read from the other. If your computer does not read the input file, then comment out the current reference
+         * path and uncomment out the other reference path.
          */
 
         int[] input1 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
