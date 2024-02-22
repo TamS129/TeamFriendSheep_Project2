@@ -26,7 +26,7 @@ public class Dynamic {
                 if ((j >= weight[i-1]) && (B[i][j] < B[i - 1][j - weight[i - 1]] + value[i - 1])) {
                     B[i][j] = B[i - 1][j - weight[i - 1]] + value[i - 1];
                 }
-
+//                Uncomment these lines if you want to see the printed out table.
 //                System.out.print(B[i][j] + " ");
             }
 //            System.out.print("\n");

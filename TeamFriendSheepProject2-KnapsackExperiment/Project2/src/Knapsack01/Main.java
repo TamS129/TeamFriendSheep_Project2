@@ -10,34 +10,47 @@ import General.knapsack;
 
 import java.io.File;
 
+
 public class Main {
     public static void main(String[] args) {
         //Reader
         Reader read = new Reader();
         Greedy greedy = new Greedy();
 
+        /**
+         * Our group had a weird encounter where one of the src files can be read from one reference path, and some
+         * read from the other. If your computer does not read the input file, then comment out the current reference
+         * path and uncomment out the reference path.
+         */
+
         int[] input1 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
+        //int[] input1 = read.load(new File("Project2/src/InputFiles/inputs.csv"));
         knapsack knap1 = new knapsack();
         knap1.load(input1);
 
 
         int[] input2 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs2.csv"));
+        //int[] input2 = read.load(new File("Project2/src/InputFiles/input2.csv"));
         knapsack knap2 = new knapsack();
         knap2.load(input2);
 
         int[] input3 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs3.csv"));
+        //int[] input3 = read.load(new File("Project2/src/InputFiles/input3.csv"));
         knapsack knap3 = new knapsack();
         knap3.load(input3);
 
         int[] input4 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/input4.csv"));
+        //int[] input4 = read.load(new File("Project2/src/InputFiles/input4.csv"));
         knapsack knap4 = new knapsack();
         knap4.load(input4);
 
         int[] input5 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs5.csv"));
+        //int[] input5 = read.load(new File("Project2/src/InputFiles/input5.csv"));
         knapsack knap5 = new knapsack();
         knap5.load(input5);
 
         int[] input6 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/input6.csv"));
+        //int[] input6 = read.load(new File("Project2/src/InputFiles/input6.csv"));
         knapsack knap6 = new knapsack();
         knap6.load(input6);
 
