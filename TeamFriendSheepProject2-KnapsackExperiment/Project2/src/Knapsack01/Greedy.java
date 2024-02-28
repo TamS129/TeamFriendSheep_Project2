@@ -6,14 +6,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Made by Nguyen
+ */
 
 public class Greedy {
     /**
-     * Greedy 0/1 Knapsack
-     * @param capacity
-     * @param weight
-     * @param value
-     * @return the maximum profit
+     *
+     * @param capacity Capacity of the knapsack
+     * @param weight Weight of the items that will go into the knapsack
+     * @param value Values of the items that will go into the knapsack
+     * @return Returns the max profit of the final knapsack
      */
     public int run(int capacity, int[] weight, int[] value) {
         int capacityLeft = capacity;

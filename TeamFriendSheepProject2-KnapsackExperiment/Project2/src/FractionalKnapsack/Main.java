@@ -1,4 +1,8 @@
 package FractionalKnapsack;
+/**
+ * Made by Robin/Tamara
+ */
+
 import General.Reader;
 import General.knapsack;
 
@@ -10,45 +14,84 @@ public class Main {
         Greedy greedy = new Greedy();
         BruteForce bruteForce = new BruteForce();
 
-        System.out.println("******************** Greedy Run times *************************");
+        /**
+         * Our group had a weird encounter where some computers could read the input files from one reference path, and some
+         * computers read from the other. If your computer does not read the input file, then comment out the current reference
+         * path and uncomment out the other reference path.
+         */
+
 
         int[] input1 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs.csv"));
+//        int[] input1 = read.load(new File("Project2/src/InputFiles/inputs.csv"));
         knapsack knap1 = new knapsack();
         knap1.load(input1);
 
-        greedy.run(knap1.getTitle(), knap1.getCapacity(), knap1.getWeight(), knap1.getValue());
-
         int[] input2 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs2.csv"));
+//        int[] input2 = read.load(new File("Project2/src/InputFiles/inputs2.csv"));
         knapsack knap2 = new knapsack();
         knap2.load(input2);
 
-        greedy.run(knap2.getTitle(), knap2.getCapacity(), knap2.getWeight(), knap2.getValue());
-
         int[] input3 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs3.csv"));
+//        int[] input3 = read.load(new File("Project2/src/InputFiles/inputs3.csv"));
         knapsack knap3 = new knapsack();
         knap3.load(input3);
 
-        greedy.run(knap3.getTitle(), knap3.getCapacity(), knap3.getWeight(), knap3.getValue());
-
         int[] input4 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/input4.csv"));
+//        int[] input4 = read.load(new File("Project2/src/InputFiles/input4.csv"));
         knapsack knap4 = new knapsack();
         knap4.load(input4);
 
-        greedy.run(knap4.getTitle(), knap4.getCapacity(), knap4.getWeight(), knap4.getValue());
-
         int[] input5 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/inputs5.csv"));
+//        int[] input5 = read.load(new File("Project2/src/InputFiles/inputs5.csv"));
         knapsack knap5 = new knapsack();
         knap5.load(input5);
 
-        greedy.run(knap5.getTitle(), knap5.getCapacity(), knap5.getWeight(), knap5.getValue());
-
         int[] input6 = read.load(new File("TeamFriendSheepProject2-KnapsackExperiment/Project2/src/InputFiles/input6.csv"));
+//        int[] input6 = read.load(new File("Project2/src/InputFiles/input6.csv"));
         knapsack knap6 = new knapsack();
         knap6.load(input6);
 
-        greedy.run(knap6.getTitle(), knap6.getCapacity(), knap6.getWeight(), knap6.getValue());
+        //Greedy Implementation
+        System.out.println("----- Fractional Greedy Results -----");
+        long startGreedy1 = System.nanoTime();
+        greedy.run(knap1.getTitle(), knap1.getCapacity(), knap1.getWeight(), knap1.getValue());
+        long endGreedy1  = System.nanoTime();
+        long runtimeGreedy1 = (endGreedy1 - startGreedy1) / 1000;
+        System.out.println("Fractional Greedy runtime for Input 1 = " + runtimeGreedy1 + " microseconds.");
 
-        System.out.println("******************** Brute Force Run times *************************");
+        long startGreedy2 = System.nanoTime();
+        greedy.run(knap2.getTitle(), knap2.getCapacity(), knap2.getWeight(), knap2.getValue());
+        long endGreedy2  = System.nanoTime();
+        long runtimeGreedy2 = (endGreedy2 - startGreedy2) / 1000;
+        System.out.println("Fractional Greedy runtime for Input 2 = " + runtimeGreedy2 + "microseconds.");
+
+
+        long startGreedy3 = System.nanoTime();
+        greedy.run(knap3.getTitle(), knap3.getCapacity(), knap3.getWeight(), knap3.getValue());
+        long endGreedy3  = System.nanoTime();
+        long runtimeGreedy3 = (endGreedy3 - startGreedy3) / 1000;
+        System.out.println("Fractional Greedy runtime for Input 3 = " + runtimeGreedy3 + " microseconds.");
+
+        long startGreedy4 = System.nanoTime();
+        greedy.run(knap4.getTitle(), knap4.getCapacity(), knap4.getWeight(), knap4.getValue());
+        long endGreedy4  = System.nanoTime();
+        long runtimeGreedy4 = (endGreedy4 - startGreedy4) / 1000;
+        System.out.println("Fractional Greedy runtime for Input 4 = " + runtimeGreedy4 + " microseconds.");
+
+
+        long startGreedy5 = System.nanoTime();
+        greedy.run(knap5.getTitle(), knap5.getCapacity(), knap5.getWeight(), knap5.getValue());
+        long endGreedy5  = System.nanoTime();
+        long runtimeGreedy5 = (endGreedy5 - startGreedy5) / 1000;
+        System.out.println("Fractional Greedy runtime for Input 5 = " + runtimeGreedy5 + " microseconds.");
+
+        long startGreedy6 = System.nanoTime();
+        greedy.run(knap6.getTitle(), knap6.getCapacity(), knap6.getWeight(), knap6.getValue());
+        long endGreedy6  = System.nanoTime();
+        long runtimeGreedy6 = (endGreedy6 - startGreedy6) / 1000;
+        System.out.println("Fractional Greedy runtime for Input 6 = " + runtimeGreedy6 + " microseconds.");
+
+        System.out.println("\n----- Fractional Bruteforce Results -----");
 
         long start1 = System.nanoTime();
         double result1 = bruteForce.BruteForceFraction(knap1.getValue(), knap1.getWeight(), knap1.getCapacity());
@@ -98,6 +141,7 @@ public class Main {
         System.out.println("Runtime for BruteForce input6: " + runtime6 + " microseconds");
         System.out.println();
 
+        System.out.println();
 
 
 
